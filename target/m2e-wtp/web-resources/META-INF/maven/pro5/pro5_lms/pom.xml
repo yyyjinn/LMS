@@ -1,0 +1,101 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>pro5</groupId>
+  <artifactId>pro5_lms</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
+  <dependencies>
+  	<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+  	<!-- 웹 서버에서 얻은 요청 처리, 응답 생성, 응답 보냄-->
+	<dependency>
+	    <groupId>javax.servlet</groupId>
+	    <artifactId>javax.servlet-api</artifactId>
+	    <version>3.1.0</version>
+	    <scope>provided</scope>
+	</dependency>
+
+	<!-- https://mvnrepository.com/artifact/javax.servlet.jsp/jsp-api -->
+	<!-- java 언어를 기반으로 웹 서비스를 제공하기 위해 만든 기술(EL, JSTL 등의 기능, Spring MVC는 jsp-api를 포함X)-->
+	<dependency>
+	    <groupId>javax.servlet.jsp</groupId>
+	    <artifactId>jsp-api</artifactId>
+	    <version>2.2</version>
+	    <scope>provided</scope>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/javax.servlet.jsp/javax.servlet.jsp-api -->
+	<!-- 위 두개 합친 것 -->
+   <dependency>
+       <groupId>javax.servlet.jsp</groupId>
+       <artifactId>javax.servlet.jsp-api</artifactId>
+       <version>2.3.3</version>
+   </dependency>
+
+  	
+  	<!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
+  	<!-- spring framework가 제공하는 web, aop, bean, context 기능 사용-->
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-webmvc</artifactId>
+	    <version>5.3.18</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
+	<!-- JSP에서 사용할 수 있도록 표준으로 모아둔 라이브러리-->
+	<dependency>
+	    <groupId>javax.servlet</groupId>
+	    <artifactId>jstl</artifactId>
+	    <version>1.2</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+	<!-- mysql 드라이버-->
+	<dependency>
+	    <groupId>mysql</groupId>
+	    <artifactId>mysql-connector-java</artifactId>
+	    <version>8.0.28</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
+	<!-- jdbc의 모든 저수준 처리를 스프링 프레임워크에 위임 (Connection, Statement, ResultSet, 예외처리, 트랜잭션 등)-->
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-jdbc</artifactId>
+	    <version>5.3.18</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-jdbc -->
+	<!-- connection pool사용-->
+	<dependency>
+	    <groupId>org.apache.tomcat</groupId>
+	    <artifactId>tomcat-jdbc</artifactId>
+	    <version>10.0.16</version>
+	</dependency>
+
+	<!-- https://mvnrepository.com/artifact/com.servlets/cos -->
+	<!-- MultipartRequest (파일 업로드 패키지) 사용-->
+	<dependency>
+	    <groupId>com.servlets</groupId>
+	    <artifactId>cos</artifactId>
+	    <version>05Nov2002</version>
+	</dependency>
+
+  </dependencies>
+  
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>3.2.3</version>
+      </plugin>
+    </plugins>
+  </build>
+</project>
