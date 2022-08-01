@@ -29,7 +29,7 @@
     <title>학생정보</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&family=Noto+Sans:wght@200;400;600;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/10dae3550b.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../resource/CSS/s_info.css">
+    <link rel="stylesheet" href="<c:url value='/resource/CSS/s_info.css'/>">
     <script type="text/javascript">
     	function update_info(){
     		if(isNaN(document.getElementById("s_phone").value)){
@@ -56,24 +56,24 @@
     </script>
 </head>
 <body>
-     <!--nav 시작-->
+        <!--nav 시작-->
     <nav id = "navbar">
         <div class = "nav_container">
             <div class = "nav_logo_container">
-                <a href = "http://localhost:8080/pro5_lms/student/s_main.so"><img src="../resource/images/logo.png" alt="ITUNIVERSITY"></a>
+                <a href = "s_main.so"><img src="<c:url value='/resource/images/logo.png'/>" alt="ITUNIVERSITY"></a>
             </div>
             <div class = "nav_user_container">
                 <a><%=session.getAttribute("s_name") %></a>
             </div>
             <div class = "nav_ul_container information">
                 <ul>
-                    <input type="checkbox" name="box" id="box1" checked>
+                    <input type="checkbox" name="box" id="box1"  checked>
                     <div>
                         <i class="fa-brands fa-blogger"></i>
                         <label for="box1">학적 관리</label>
                     </div>
                     
-                    <li><a href="http://localhost:8080/pro5_lms/student/s_info.so">기본 정보 조회</a></li>
+                    <li><a href="s_info.so">기본 정보 조회</a></li>
                 </ul>
             </div>
 
@@ -87,8 +87,8 @@
                         <label for="box2">수강 신청</label>
                     </div>
                     
-                    <li><a href="http://localhost:8080/pro5_lms/student/s_subject.so">수강 신청</a></li>
-                    <li><a href="http://localhost:8080/pro5_lms/student/s_schedule.so">시간표 조회</a></li>
+                    <li><a href="s_subject.so">수강 신청</a></li>
+                    <li><a href="s_schedule.so">시간표 조회</a></li>
                 </ul>
             </div>
 
@@ -102,7 +102,7 @@
                         <label for="box3">시험 응시</label>
                     </div>
                    
-                    <li><a href="http://localhost:8080/pro5_lms/student/s_exam.so">시험 응시</a></li>
+                    <li><a href="s_exam.so">시험 응시</a></li>
                 </ul>
             </div>
 
@@ -116,17 +116,17 @@
                         <label for="box4">성적 조회</label>
                     </div>
                     
-                    <li><a href="http://localhost:8080/pro5_lms/student/s_inquiry.so">성적 조회</a></li>
+                    <li><a href="s_inquiry.so">성적 조회</a></li>
                 </ul>
             </div>
         </div>
     </nav>
-    <!--nav 끝-->
-    <!--틀 시작-->
-    <section id="main">
-        <!--배너 시작-->
+<!--nav 끝-->
+<!--틀 시작-->
+   <section id="main">
+       <!--배너 시작-->
         <div class ="banner">
-            <input type="button" value="로그아웃" onClick="location.href='http://localhost:8080/pro5_lms/member/logout.do'">
+            <input type="button" value="로그아웃" onClick="location.href='<c:url value='/member/logout.do'/>'">
         </div>
         <!--배너 끝-->
     <!--기본 틀 안에 내용 작성-->
@@ -146,7 +146,7 @@
                         <div class="info_top">
                             <div class="info_top_left">
                                 <div class="info_pic">
-                                    <img src="../resource/images/info.jpg" alt="img">
+                                    <img src="<c:url value='/resource/images/info.jpg'/>" alt="img">
                                 </div>
                                 <div class="info_student">
                                     <p class="info_name"><%=stu_dto.getS_name() %></p>
@@ -154,7 +154,7 @@
                                 </div>
                             </div>
                             <div class="info_top_right">
-                                <a href="http://localhost:8080/pro5_lms/member/changepw.do">비밀번호 변경</a>
+                                <a href="<c:url value='/member/changepw.do'/>">비밀번호 변경</a>
                             </div>
                         </div>
                         

@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     
 <%@ page import="mvc.modeldto.notice_boardDTO"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 
 <%
@@ -17,14 +18,14 @@ notice_boardDTO nbDTO = (notice_boardDTO) request.getAttribute("nbDTO");
     <title>공지사항 수정화면(view)</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&family=Noto+Sans:wght@200;400;600;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/10dae3550b.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../resource/CSS/p_noticewrite.css">
+    <link rel="stylesheet" href="<c:url value='/resource/CSS/p_noticewrite.css'/>">
 </head>
 	<script language = "JavaScript">
     function func()
         {
         if (confirm("수정을 취소하시겠습니까?"))
             {
-            window.location.href="http://localhost:8080/pro5_lms/professor/p_main.per";            
+            window.location.href="../professor/p_main.per";            
             }
 
         else
@@ -55,7 +56,7 @@ notice_boardDTO nbDTO = (notice_boardDTO) request.getAttribute("nbDTO");
     <nav id = "navbar">
         <div class = "nav_container">
             <div class = "nav_logo_container">
-                <a href = "<c:url value='/professor/p_main.per'/>"><img src="../resource/images/logo.png" alt="ITUNIVERSITY"></a>
+                <a href = "<c:url value='/professor/p_main.per'/>"><img src="<c:url value='/resource/images/logo.png'/>" alt="ITUNIVERSITY"></a>
             </div>
             <div class = "nav_user_container">
                 <a>
@@ -122,7 +123,7 @@ notice_boardDTO nbDTO = (notice_boardDTO) request.getAttribute("nbDTO");
    <section id="main">
        <!--배너 시작-->
         <div class ="banner">
-            <input type="button" value="로그아웃" onClick="location.href='http://localhost:8080/pro5_lms/member/logout.do'">
+            <input type="button" value="로그아웃" onClick="location.href='<c:url value='/member/logout.do'/>'">
         </div>
         <!--배너 끝-->
 <!--기본 틀 안에 내용 작성-->
@@ -141,7 +142,7 @@ notice_boardDTO nbDTO = (notice_boardDTO) request.getAttribute("nbDTO");
 								<input type="text" class="box number" name="p_department" placeholder="부서" value="<%=nbDTO.getP_department()%>" readonly>
 							</div>
 							<div class="btns">
-								<a href="http://localhost:8080/pro5_lms/board/p_noticeboardlist.notice" class="btn-list">목록</a>
+								<a href="p_noticeboardlist.notice" class="btn-list">목록</a>
 								<a class="btn-reset" onclick="func()">취소</a>
                                 <input type="button" class="btn-submit" name="submit_btn" value="수정" onclick="asdf()">
                             </div>

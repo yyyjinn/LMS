@@ -1,22 +1,7 @@
-use pro5_lms;
-
-/*drop*/
-drop database pro5_lms;
-drop table student;
-drop table department;
-drop table ssubject;
-drop table personal;
-drop table exam1;
-drop table exam2;
-drop table answer;
-drop table notice;
-drop table post;
-drop table calendar;
-drop table application;
-drop table lecture;
-
 /*create*/
 create database pro5_lms;
+
+use pro5_lms;
 
 /*1 : 학과테이블*/
 create table department(

@@ -160,6 +160,6 @@ public class BoardDAO {
 		
 		String sql = "update post set sub_name=?, po_subject=?, po_filename=?, n_contents=?, po_date=?, po_realname=? where po_num=?";
 		jT.update(sql, board.getSub_name(), board.getPo_subject(), board.getPo_filename(), 
-				board.getN_contents(), board.getPo_date(), board.getPo_realname());
+				board.getN_contents(), board.getPo_date(), board.getPo_realname(), board.getPo_num());
 	} 
 }

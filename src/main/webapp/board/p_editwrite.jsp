@@ -5,6 +5,7 @@
 <%@ page import="java.util.*" %>
 <%@ page import="mvc.modeldto.PersonalDTO" %>
 <%@ page import="mvc.modeldto.BoardDTO" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 	String sessionId = (String) session.getAttribute("p_id");
 	ArrayList<String> ssubject = (ArrayList<String>) request.getAttribute("ssubject");
@@ -21,13 +22,13 @@
     <title>게시판글쓰기</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&family=Noto+Sans:wght@200;400;600;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/10dae3550b.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../resource/CSS/p_write.css">
+    <link rel="stylesheet" href="<c:url value='/resource/CSS/p_write.css'/>">
 </head>
 	<script language = "JavaScript">
     function func(){
         if (confirm("작성을 취소하시겠습니까?"))
             {
-            window.location.href="http://localhost:8080/pro5_lms/professor/p_main.per"; 
+            window.location.href="../professor/p_main.per"; 
             return false;
             }
     }
@@ -53,7 +54,7 @@
     <nav id = "navbar">
         <div class = "nav_container">
             <div class = "nav_logo_container">
-                <a href = "http://localhost:8080/pro5_lms/professor/p_main.per"><img src="../resource/images/logo.png" alt="ITUNIVERSITY"></a>
+                <a href = "<c:url value='/professor/'/>p_main.per"><img src="<c:url value='/resource/images/logo.png'/>" alt="ITUNIVERSITY"></a>
             </div>
             <div class = "nav_user_container">
                 <a><%= session.getAttribute("p_name") %></a>
@@ -66,7 +67,7 @@
                         <label for="box1">교원 정보</label>
                     </div>
                     
-                    <li><a href="http://localhost:8080/pro5_lms/professor/p_info.per">기본 정보 조회</a></li>
+                    <li><a href="<c:url value='/professor/p_info.per'/>">기본 정보 조회</a></li>
                 </ul>
             </div>
 
@@ -80,7 +81,7 @@
                         <label for="box2">수강 신청 현황</label>
                     </div>
                     
-                    <li><a href="http://localhost:8080/pro5_lms/professor/p_lecture.per">수강 신청 현황</a></li>
+                    <li><a href="<c:url value='/professor/p_lecture.per'/>">수강 신청 현황</a></li>
                 </ul>
             </div>
 
@@ -94,7 +95,7 @@
                         <label for="box3">시험 관리</label>
                     </div>
                    
-                    <li><a href="http://localhost:8080/pro5_lms/professor/p_exam.per">시험 출제</a></li>
+                    <li><a href="<c:url value='/professor/p_exam.per'/>">시험 출제</a></li>
                 </ul>
             </div>
 
@@ -108,7 +109,7 @@
                         <label for="box4">성적 관리</label>
                     </div>
                     
-                    <li><a href="http://localhost:8080/pro5_lms/professor/p_score.per">성적 산출</a></li>
+                    <li><a href="<c:url value='/professor/p_score.per'/>">성적 산출</a></li>
                 </ul>
             </div>
         </div>
@@ -118,7 +119,7 @@
    <section id="main">
        <!--배너 시작-->
         <div class ="banner">
-            <input type="button" value="로그아웃" onClick="location.href='http://localhost:8080/pro5_lms/member/logout.do'">
+            <input type="button" value="로그아웃" onClick="location.href='<c:url value='/member/logout.do'/>'">
         </div>
         <!--배너 끝-->
 <!--기본 틀 안에 내용 작성-->
@@ -131,7 +132,7 @@
                     <div class="title_sub">수정</div>
                 </div>
                 <div class="frame_bottom">
-                    <form action="http://localhost:8080/pro5_lms/board/p_postupdate.go?num=<%=num%>&pageNum=<%=nowpage%>" class="post-form" name="write_form" method="post" enctype="multipart/form-data">
+                    <form action="p_postupdate.go?num=<%=num%>&pageNum=<%=nowpage%>" class="post-form" name="write_form" method="post" enctype="multipart/form-data">
                         <input name="id" type="hidden" value="<%=sessionId%>">
                         <input name="phonenum" type="hidden" value="<%=dto.getP_oNumber()%>">
                         <input name="p_name" type="hidden" value="<%=dto.getP_name()%>">
@@ -149,7 +150,7 @@
                                 </select>
                             </div>
                             <div class="btns">
-                                <a href="http://localhost:8080/pro5_lms/board/ListAction1.go?pageNum=1" class="btn-list">목록</a>
+                                <a href="ListAction1.go?pageNum=1" class="btn-list">목록</a>
                                 <a class="btn-reset" onclick="func()">취소</a>
                                 <input type="button" class="btn-submit" name="sub" value="수정" onclick="asdf()">
                             </div>

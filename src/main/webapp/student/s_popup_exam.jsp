@@ -3,6 +3,7 @@
     
 <%@ page import = "java.util.*" %>
 <%@ page import = "mvc.modeldto.QuestionDTO" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%
 String sub_name = (String)request.getAttribute("sub_name");
@@ -17,7 +18,7 @@ ArrayList<QuestionDTO> queDTO_list = (ArrayList<QuestionDTO>)request.getAttribut
     <title>시험응시팝업</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&family=Noto+Sans:wght@200;400;600;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/10dae3550b.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../resource/CSS/s_popup_exam.css">
+    <link rel="stylesheet" href="<c:url value='/resource/CSS/s_popup_exam.css'/>">
 </head>
 
 <script language = "JavaScript">

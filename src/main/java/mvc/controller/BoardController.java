@@ -15,6 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import mvc.model.BoardDAO;
 import mvc.model.PersonalDAO;
@@ -184,13 +185,13 @@ public class BoardController{
 	
 	/*교수 : 게시판 글 상세보기*/
 	@RequestMapping("/p_post.go")
-	public String board5(Model model, @RequestParam int pageNum, @RequestParam int num) {
+	public String board5(Model model, @RequestParam(defaultValue = "1") int pageNum, @RequestParam(defaultValue = "1") int num) {
 		
 		/*게시글 상세페이지 DB에서 가져오기*/
 		BoardDTO board = boardDAO.getBoardByNum(num);
 		
-		model.addAttribute("num", num);
-		model.addAttribute("page", pageNum);
+		model.addAttribute("num", String.valueOf(num));
+		model.addAttribute("page", String.valueOf(pageNum));
 		model.addAttribute("board", board);
 		return "board/p_post";
 	}
@@ -259,7 +260,7 @@ public class BoardController{
 	@RequestMapping("/DeleteAction.go")
 	public String board8(@RequestParam int num) {
 		boardDAO.deleteBoard(num);
-		return "/ListAction1.go";
+		return "redirect:ListAction1.go";
 	}
 	
 	/*교수만 : 글 수정화면으로 이동*/
@@ -286,7 +287,7 @@ public class BoardController{
 	
 	/*교수만 : 수정글 db에 업데이트*/
 	@RequestMapping("/p_postupdate.go")
-	public String board10(@RequestParam int num, HttpServletRequest request) {
+	public String board10(@RequestParam int num, @RequestParam int pageNum, HttpServletRequest request, RedirectAttributes ra) {
 		String realFolder = request.getSession().getServletContext().getRealPath("resource/upload");
 		int maxSize = 10 * 1024 * 1024;
 		
@@ -312,11 +313,12 @@ public class BoardController{
 			board.setPo_realname(realname);
 			
 			boardDAO.updateBoard(board);
-			
+			ra.addAttribute("num", String.valueOf(num));
+			ra.addAttribute("pageNum", String.valueOf(pageNum));
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
 		
-		return "board/p_post";
+		return "redirect:p_post.go";
 	}
 }

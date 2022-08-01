@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="mvc.modeldto.PersonalDTO"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <%
 	String p_id= (String) request.getAttribute("p_id");
@@ -27,7 +28,7 @@
     <title>교수정보</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&family=Noto+Sans:wght@200;400;600;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/10dae3550b.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="http://localhost:8080/pro5_lms/resource/CSS/p_info.css">
+    <link rel="stylesheet" href="<c:url value='/resource/CSS/p_info.css'/>">
 	<script type="text/javascript">
 		function update_info(){
 			if(isNaN(document.getElementById("p_phone").value)){
@@ -59,7 +60,7 @@
     <nav id = "navbar">
         <div class = "nav_container">
             <div class = "nav_logo_container">
-                <a href = "http://localhost:8080/pro5_lms/professor/p_main.per"><img src="../resource/images/logo.png" alt="ITUNIVERSITY"></a>
+                <a href = "p_main.per"><img src="<c:url value='/resource/images/logo.png'/>" alt="ITUNIVERSITY"></a>
             </div>
             <div class = "nav_user_container">
                 <a><%= session.getAttribute("p_name")%></a>
@@ -72,7 +73,7 @@
                         <label for="box1">교원 정보</label>
                     </div>
                     
-                    <li><a href="http://localhost:8080/pro5_lms/professor/p_info.per">기본 정보 조회</a></li>
+                    <li><a href="p_info.per">기본 정보 조회</a></li>
                 </ul>
             </div>
 
@@ -86,7 +87,7 @@
                         <label for="box2">수강 신청 현황</label>
                     </div>
                     
-                    <li><a href="http://localhost:8080/pro5_lms/professor/p_lecture.per">수강 신청 현황</a></li>
+                    <li><a href="p_lecture.per">수강 신청 현황</a></li>
                 </ul>
             </div>
 
@@ -100,7 +101,7 @@
                         <label for="box3">시험 관리</label>
                     </div>
                    
-                    <li><a href="http://localhost:8080/pro5_lms/professor/p_exam.per">시험 출제</a></li>
+                    <li><a href="p_exam.per">시험 출제</a></li>
                 </ul>
             </div>
 
@@ -114,7 +115,7 @@
                         <label for="box4">성적 관리</label>
                     </div>
                     
-                    <li><a href="http://localhost:8080/pro5_lms/professor/p_score.per">성적 산출</a></li>
+                    <li><a href="p_score.per">성적 산출</a></li>
                 </ul>
             </div>
         </div>
@@ -124,7 +125,7 @@
    <section id="main">
        <!--배너 시작-->
         <div class ="banner">
-            <input type="button" value="로그아웃" onClick="location.href='http://localhost:8080/pro5_lms/member/logout.do'">
+            <input type="button" value="로그아웃" onClick="location.href='<c:url value='/member/logout.do'/>'">
         </div>
         <!--배너 끝-->
 <!--기본 틀 안에 내용 작성-->
@@ -143,7 +144,7 @@
                         <div class="info_top">
                             <div class="info_top_left">
                                 <div class="info_pic">
-                                    <img src="../resource/personal_pic/<%=session.getAttribute("p_id")%>.jpg" alt="img">
+                                    <img src="<c:url value='/resource/personal_pic/'/><%=session.getAttribute("p_id")%>.jpg" alt="img">
                                 </div>
                                 <div class="info_student">
                                     <p class="info_name"><%=per_dto.getP_name() %></p>
@@ -151,7 +152,7 @@
                                 </div>
                             </div>
                             <div class="info_top_right">
-                                <a href="http://localhost:8080/pro5_lms/member/changepw.do">비밀번호 변경</a>
+                                <a href="<c:url value='/member/changepw.do'/>">비밀번호 변경</a>
                             </div>
                         </div>
                         

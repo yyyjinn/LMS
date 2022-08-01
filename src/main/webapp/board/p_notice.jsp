@@ -3,6 +3,7 @@
     
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page import="mvc.modeldto.notice_boardDTO"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%
 int n_num = (Integer) request.getAttribute("n_num");
@@ -16,7 +17,7 @@ notice_boardDTO nbDTO = (notice_boardDTO) request.getAttribute("nbDTO");
 	<title>공지사항 상세보기 - 교수</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&family=Noto+Sans:wght@200;400;600;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/10dae3550b.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../resource/CSS/p_notice.css">
+    <link rel="stylesheet" href="<c:url value='/resource/CSS/p_notice.css'/>">
 </head>
 <script language = "JavaScript">
     function func()
@@ -38,7 +39,7 @@ notice_boardDTO nbDTO = (notice_boardDTO) request.getAttribute("nbDTO");
     <nav id = "navbar">
         <div class = "nav_container">
             <div class = "nav_logo_container">
-                <a href = "http://localhost:8080/pro5_lms/professor/p_main.per"><img src="../resource/images/logo.png" alt="ITUNIVERSITY"></a>
+                <a href = "<c:url value='/professor/p_main.per'/>"><img src="<c:url value='/resource/images/logo.png'/>" alt="ITUNIVERSITY"></a>
             </div>
             <div class = "nav_user_container">
                 <a><%= session.getAttribute("p_name") %></a>
@@ -51,7 +52,7 @@ notice_boardDTO nbDTO = (notice_boardDTO) request.getAttribute("nbDTO");
                         <label for="box1">교원 정보</label>
                     </div>
                     
-                    <li><a href="http://localhost:8080/pro5_lms/professor/p_info.per">기본 정보 조회</a></li>
+                    <li><a href="<c:url value='/professor/p_info.per'/>">기본 정보 조회</a></li>
                 </ul>
             </div>
 
@@ -65,7 +66,7 @@ notice_boardDTO nbDTO = (notice_boardDTO) request.getAttribute("nbDTO");
                         <label for="box2">수강 신청 현황</label>
                     </div>
                     
-                    <li><a href="http://localhost:8080/pro5_lms/professor/p_lecture.per">수강 신청 현황</a></li>
+                    <li><a href="<c:url value='/professor/p_lecture.per'/>">수강 신청 현황</a></li>
                 </ul>
             </div>
 
@@ -79,7 +80,7 @@ notice_boardDTO nbDTO = (notice_boardDTO) request.getAttribute("nbDTO");
                         <label for="box3">시험 관리</label>
                     </div>
                    
-                    <li><a href="http://localhost:8080/pro5_lms/professor/p_exam.per">시험 출제</a></li>
+                    <li><a href="<c:url value='/professor/p_exam.per'/>">시험 출제</a></li>
                 </ul>
             </div>
 
@@ -93,7 +94,7 @@ notice_boardDTO nbDTO = (notice_boardDTO) request.getAttribute("nbDTO");
                         <label for="box4">성적 관리</label>
                     </div>
                     
-                    <li><a href="http://localhost:8080/pro5_lms/professor/p_score.per">성적 산출</a></li>
+                    <li><a href="<c:url value='/professor/p_score.per'/>">성적 산출</a></li>
                 </ul>
             </div>
         </div>
@@ -103,7 +104,7 @@ notice_boardDTO nbDTO = (notice_boardDTO) request.getAttribute("nbDTO");
    <section id="main">
        <!--배너 시작-->
         <div class ="banner">
-            <input type="button" value="로그아웃" onClick="location.href='http://localhost:8080/pro5_lms/member/logout.do'">
+            <input type="button" value="로그아웃" onClick="location.href='<c:url value='/member/logout.do'/>'">
         </div>
         <!--배너 끝-->
 <!--기본 틀 안에 내용 작성-->
@@ -148,7 +149,7 @@ notice_boardDTO nbDTO = (notice_boardDTO) request.getAttribute("nbDTO");
 	                            if (nbDTO.getN_filename() != null)
 	                            	{
 	                            %>
-	                            	<div class = "left"><a class="btn" href="http://localhost:8080/pro5_lms/board/download.notice?n_filename=<%= nbDTO.getN_filename() %>&n_realname=<%= nbDTO.getN_realname() %>"><i class="fa-solid fa-circle-down"></i><%= nbDTO.getN_realname() %></a></div>
+	                            	<div class = "left"><a class="btn" href="download.notice?n_filename=<%= nbDTO.getN_filename() %>&n_realname=<%= nbDTO.getN_realname() %>"><i class="fa-solid fa-circle-down"></i><%= nbDTO.getN_realname() %></a></div>
 	                            <%
 	                            	}
 	                            %>
@@ -156,7 +157,7 @@ notice_boardDTO nbDTO = (notice_boardDTO) request.getAttribute("nbDTO");
 	                    </div>
 	                    <div class = "buttons">
 	                    	<div class = "a_container">
-								<a href="http://localhost:8080/pro5_lms/board/p_noticeboardlist.notice?pageNum=<%= pageNum%>"><p>목록</p></a>
+								<a href="p_noticeboardlist.notice?pageNum=<%= pageNum%>"><p>목록</p></a>
 							</div>
 	                    	<div class = "form_container">
 	                    		<%
@@ -166,8 +167,8 @@ notice_boardDTO nbDTO = (notice_boardDTO) request.getAttribute("nbDTO");
 	                        	if (sessionId.equals(userId))
 	                        		{
 	                    		%>
-	                    			<a href = "http://localhost:8080/pro5_lms/board/p_editnotice.notice?n_num=<%=n_num%>&pageNum=<%=pageNum%>"><input type="button" value = "수정"></a>
-	                    			<a href = "http://localhost:8080/pro5_lms/board/p_deletenotice.notice?n_num=<%=n_num%>&pageNum=<%=pageNum%>"><input type="button" value = "삭제" name = "button" onclick = "func()"></a>
+	                    			<a href = "p_editnotice.notice?n_num=<%=n_num%>&pageNum=<%=pageNum%>"><input type="button" value = "수정"></a>
+	                    			<a href = "p_deletenotice.notice?n_num=<%=n_num%>&pageNum=<%=pageNum%>"><input type="button" value = "삭제" name = "button" onclick = "func()"></a>
 								<%
 	                        		}
 	                        	%>

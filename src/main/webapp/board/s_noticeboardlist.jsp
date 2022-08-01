@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="java.util.*"%>
 <%@ page import="mvc.modeldto.notice_boardDTO"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 ArrayList nblist = (ArrayList) request.getAttribute("nblist");
 int pageNum = ((Integer) request.getAttribute("pageNum")).intValue();
@@ -16,14 +17,14 @@ int total_page = ((Integer) request.getAttribute("total_page")).intValue();
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&family=Noto+Sans:wght@200;400;600;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/10dae3550b.js" crossorigin="anonymous"></script>
     <!-- css : p_noticeboardlist -->
-    <link rel="stylesheet" href="../resource/CSS/p_noticeboardlist.css">
+    <link rel="stylesheet" href="<c:url value='/resource/CSS/p_noticeboardlist.css'/>">
 </head>
 <body>
 <!--nav 시작-->
     <nav id = "navbar">
         <div class = "nav_container">
             <div class = "nav_logo_container">
-                <a href = "http://localhost:8080/pro5_lms/student/s_main.so"><img src="../resource/images/logo.png" alt="ITUNIVERSITY"></a>
+                <a href = "<c:url value='/student/s_main.so'/>"><img src="<c:url value='/resource/images/logo.png'/>" alt="ITUNIVERSITY"></a>
             </div>
             <div class = "nav_user_container">
                 <a><%=session.getAttribute("s_name") %></a>
@@ -36,7 +37,7 @@ int total_page = ((Integer) request.getAttribute("total_page")).intValue();
                         <label for="box1">학적 관리</label>
                     </div>
                     
-                    <li><a href="http://localhost:8080/pro5_lms/student/s_info.so">기본 정보 조회</a></li>
+                    <li><a href="<c:url value='/student/s_info.so'/>">기본 정보 조회</a></li>
                 </ul>
             </div>
 
@@ -50,8 +51,8 @@ int total_page = ((Integer) request.getAttribute("total_page")).intValue();
                         <label for="box2">수강 신청</label>
                     </div>
                     
-                    <li><a href="http://localhost:8080/pro5_lms/student/s_subject.so">수강 신청</a></li>
-                    <li><a href="http://localhost:8080/pro5_lms/student/s_schedule.so">시간표 조회</a></li>
+                    <li><a href="<c:url value='/student/s_subject.so'/>">수강 신청</a></li>
+                    <li><a href="<c:url value='/student/s_schedule.so'/>">시간표 조회</a></li>
                 </ul>
             </div>
 
@@ -65,7 +66,7 @@ int total_page = ((Integer) request.getAttribute("total_page")).intValue();
                         <label for="box3">시험 응시</label>
                     </div>
                    
-                    <li><a href="http://localhost:8080/pro5_lms/student/s_exam.so">시험 응시</a></li>
+                    <li><a href="<c:url value='/student/s_exam.so'/>">시험 응시</a></li>
                 </ul>
             </div>
 
@@ -79,7 +80,7 @@ int total_page = ((Integer) request.getAttribute("total_page")).intValue();
                         <label for="box4">성적 조회</label>
                     </div>
                     
-                    <li><a href="http://localhost:8080/pro5_lms/student/s_inquiry.so">성적 조회</a></li>
+                    <li><a href="<c:url value='/student/s_inquiry.so'/>">성적 조회</a></li>
                 </ul>
             </div>
         </div>
@@ -128,7 +129,7 @@ int total_page = ((Integer) request.getAttribute("total_page")).intValue();
 						<ul class = "tr">
 							<li class = "td a"><p><%= nbDTO.getN_num() %></p></li>
 	                     	<li class = "td b"><p><%= nbDTO.getP_name() %></p></li>
-	                     	<li class = "td c"><a href = "http://localhost:8080/pro5_lms/board/p_notice.notice?n_num=<%=nbDTO.getN_num()%>&pageNum=<%=pageNum%>"><%=nbDTO.getN_subject()%></a></li>
+	                     	<li class = "td c"><a href = "p_notice.notice?n_num=<%=nbDTO.getN_num()%>&pageNum=<%=pageNum%>"><%=nbDTO.getN_subject()%></a></li>
 	                     	<li class = "td d"><p><%= nbDTO.getP_department() %></p></li>
 	                     	<li class = "td e"><p><%= nbDTO.getN_date() %></p></li>
 						</ul>
@@ -141,7 +142,7 @@ int total_page = ((Integer) request.getAttribute("total_page")).intValue();
                  	<c:set var="pageNum" value="<%=pageNum%>" />
                  	<c:forEach var="i" begin="1" end="<%=total_page%>">
                  		<div class="number">
-	                 		<a href="<c:url value="/board/s_noticeboardlist.notice?pageNum=${i}" /> ">
+	                 		<a href="s_noticeboardlist.notice?pageNum=${i} ">
 		                 		<c:choose>
 		                 			<c:when test="${pageNum==i}">
 		                 				<font><b>${i}</b></font>

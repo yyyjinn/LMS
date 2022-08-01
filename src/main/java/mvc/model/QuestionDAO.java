@@ -161,7 +161,7 @@ public class QuestionDAO{
 		for(int i=0; i<mySubList.size(); i++) {
 			String subject = mySubList.get(i).getSub_name();
 			for(int j=0; j<examlist.size(); j++) {
-				QuestionDTO dto = examlist.get(i);
+				QuestionDTO dto = examlist.get(j);
 				String exam = dto.getSub_name();
 				if(subject.equals(exam)) {
 					map.put(subject, dto);

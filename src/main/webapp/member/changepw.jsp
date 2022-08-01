@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import = "mvc.modeldto.PersonalDTO" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <%
 	String id;
@@ -33,7 +34,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&family=Noto+Sans:wght@200;400;600;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/10dae3550b.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../resource/CSS/changepw.css">
+    <link rel="stylesheet" href="<c:url value='/resource/CSS/changepw.css'/>">
     <title>비밀번호변경</title>
     <script type="text/javascript">
     	function accord(){
@@ -63,7 +64,7 @@
                 </div>
                 <div class="pw_section2">
                     <ul>
-                        <form name="changepw" action="http://localhost:8080/pro5_lms/member/pwprocess.do" method="post">
+                        <form name="changepw" action="pwprocess.do" method="post">
                             <li><input type="text" class="box number" id="id" name="id" placeholder="<%=id%>" readonly value=<%=id%>></li>
                             <li><input type="password" class="box" id="pw_before" name="pw_before" placeholder="이전 비밀번호"></li>
                             <li><input type="password" class="box" id="pw_new" name="pw_new" placeholder="새 비밀번호"></li>

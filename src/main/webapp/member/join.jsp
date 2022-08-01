@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 	
 	String name = (String) request.getAttribute("name");
@@ -43,7 +44,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&family=Noto+Sans:wght@200;400;600;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/10dae3550b.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="http://localhost:8080/pro5_lms/resource/CSS/join.css">
+    <link rel="stylesheet" href="<c:url value='/resource/CSS/join.css'/>">
     <title>회원가입</title>
     <script type="text/javascript">
     
@@ -83,7 +84,7 @@
 	<div class="join_container">
         <div class="join_section1">
             <div class="logo">
-                <img src="../resource/images/logo.png" alt="logo">
+                <img src="<c:url value='/resource/images/logo.png'/>" alt="logo">
             </div>
         </div>
         <div class="join_section2">
@@ -98,10 +99,10 @@
             </div>
             <div class="middle">
                 <ul>
-                	<form name="join_chkform" action="http://localhost:8080/pro5_lms/member/join_chkprocess.do">
+                	<form name="join_chkform" action="join_chkprocess.do">
 	                   <li><input type="text" size = "6" maxlength="6" class="jumin" id="join_jumin1" name="join_jumin1" placeholder="생년월일" value="<%=jumin1%>">-<input type="password" size ="7" maxlength="7" id="join_jumin2" class="jumin" name="join_jumin2" placeholder="뒤 7자리" value="<%=jumin2%>"></li>
                     </form>
-                    <form name="join_form" action="http://localhost:8080/pro5_lms/member/join_process.do">
+                    <form name="join_form" action="join_process.do">
                        <li><input type="text" class="box number" name="join_name" placeholder="이름" value="<%=name%>" readonly></li>
 	                   <li><input type="text" class="box number" name="join_id" placeholder="학번/직번" value="<%=id%>" readonly></li>
 	                   <li><input type="password" class="box" id="join_pw" name="join_pw" placeholder="비밀번호"></li>

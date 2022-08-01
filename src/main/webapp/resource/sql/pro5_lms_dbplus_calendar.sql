@@ -1,5 +1,5 @@
 insert into calendar values(1,'2022-03-01','2022-03-01','제1학기 시작');						
-insert into calendar values(2,'2022-03-02','2022-03-02','제1학기 개강,입학식');						
+insert into calendar values(2,'2022-03-02','2002-03-02','제1학기 개강,입학식');						
 insert into calendar values(3,'2022-03-02','2022-03-08','제2학기 개설교과목 수요조사');						
 insert into calendar values(4,'2022-03-02','2022-03-08','제1학기 수강신청 변경');						
 insert into calendar values(5,'2022-03-09','2022-03-15','하계 계절수업 개설 교과목 수요조사');						

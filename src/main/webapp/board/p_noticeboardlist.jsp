@@ -4,6 +4,7 @@
     
 <%@ page import="java.util.*"%>
 <%@ page import="mvc.modeldto.notice_boardDTO"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%
 ArrayList nblist = (ArrayList) request.getAttribute("nblist");
@@ -17,14 +18,14 @@ int total_page = ((Integer) request.getAttribute("total_page")).intValue();
 	<title>교직원 공지사항 목록</title>
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&family=Noto+Sans:wght@200;400;600;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/10dae3550b.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../resource/CSS/p_noticeboardlist.css">
+    <link rel="stylesheet" href="<c:url value='/resource/CSS/p_noticeboardlist.css'/>">
 </head>
 <body>
 <!--nav 시작-->
     <nav id = "navbar">
         <div class = "nav_container">
             <div class = "nav_logo_container">
-                <a href = "<c:url value='/professor/p_main.per'/>"><img src="../resource/images/logo.png" alt="ITUNIVERSITY"></a>
+                <a href = "<c:url value='/professor/p_main.per'/>"><img src="<c:url value='/resource/images/logo.png'/>" alt="ITUNIVERSITY"></a>
             </div>
             <div class = "nav_user_container">
                 <a>
@@ -91,7 +92,7 @@ int total_page = ((Integer) request.getAttribute("total_page")).intValue();
 <section id="main">
     <!--배너 시작-->
      <div class ="banner">
-         <input type="button" value="로그아웃" onClick="location.href='http://localhost:8080/pro5_lms/member/logout.do'">
+         <input type="button" value="로그아웃" onClick="location.href='<c:url value='/member/logout.do'/>'">
      </div>
      <!--배너 끝-->
 <!--기본 틀 안에 내용 작성-->
@@ -130,7 +131,7 @@ int total_page = ((Integer) request.getAttribute("total_page")).intValue();
 						<ul class = "tr">
 							<li class = "td a"><p><%= nbDTO.getN_num() %></p></li>
 	                     	<li class = "td b"><p><%= nbDTO.getP_name() %></p></li>
-	                     	<li class = "td c"><a href = "http://localhost:8080/pro5_lms/board/p_notice.notice?n_num=<%=nbDTO.getN_num()%>&pageNum=<%=pageNum%>"><%=nbDTO.getN_subject()%></a></li>
+	                     	<li class = "td c"><a href = "p_notice.notice?n_num=<%=nbDTO.getN_num()%>&pageNum=<%=pageNum%>"><%=nbDTO.getN_subject()%></a></li>
 	                     	<li class = "td d"><p><%= nbDTO.getP_department() %></p></li>
 	                     	<li class = "td e"><p><%= nbDTO.getN_date() %></p></li>
 						</ul>
@@ -143,7 +144,7 @@ int total_page = ((Integer) request.getAttribute("total_page")).intValue();
                  	<c:set var="pageNum" value="<%=pageNum%>" />
                  	<c:forEach var="i" begin="1" end="<%=total_page%>">
                  		<div class="number">
-	                 		<a href="<c:url value="/board/p_noticeboardlist.notice?pageNum=${i}" /> ">
+	                 		<a href="<c:url value="p_noticeboardlist.notice?pageNum=${i}" /> ">
 		                 		<c:choose>
 		                 			<c:when test="${pageNum==i}">
 		                 				<font><b>${i}</b></font>

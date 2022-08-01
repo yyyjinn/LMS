@@ -156,13 +156,13 @@ public class StudentController{
 		
 		ArrayList<ssubjectDTO> sublist = new ArrayList<ssubjectDTO>();
 		
-		if(namecode==null) {
-			TotalOfSubject = studentDAO.s_getListCount(major);
-			sublist = studentDAO.s_getSubjectList(pageNum, limit, major);
-		}
-		else {
+		if(namecode!=null && !namecode.equals("")) {
 			TotalOfSubject = studentDAO.s_searchListCount(namecode);
 			sublist = studentDAO.searchSubjectList(pageNum, limit, namecode);
+		}
+		else {
+			TotalOfSubject = studentDAO.s_getListCount(major);
+			sublist = studentDAO.s_getSubjectList(pageNum, limit, major);
 		}
 		
 		int total_page;
@@ -370,7 +370,6 @@ public class StudentController{
 		for(int i=0; i < mylist.size(); i++){
 			ssubjectDTO subDTO = mylist.get(i);
 			QuestionDTO queDTO = queDAO.stu_getAnswer(subDTO.getSub_name(), s_id);
-			
 			queDTO_List.add(queDTO);
 		}
 		
@@ -414,7 +413,7 @@ public class StudentController{
 		int totalhakjum=0; //총 신청학점
 		int gethakjum=0; //총 취득학점
 		float finalscore=0; //총 평점
-		float average=0;
+		String average="0.0";
 		
 		//총 신청학점
 		for(int i=0; i<isuhakjum.size(); i++) {
@@ -456,7 +455,10 @@ public class StudentController{
 		}
 		
 		// 총학점/(과목수-F학점과목수)
-		average = (float) finalscore/(scorelist.size()-count);
+		average = String.valueOf((float) finalscore/(scorelist.size()-count));
+		if (average.equals("NaN")) {
+			average = "0.0";
+		}
 		
 		model.addAttribute("totalhakjum", totalhakjum);
 		model.addAttribute("gethakjum", gethakjum);

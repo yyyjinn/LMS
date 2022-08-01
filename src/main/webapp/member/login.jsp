@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <%
    String abc = request.getParameter("IdPwNum");
@@ -22,7 +23,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>로그인</title>
-    <link rel="stylesheet" href="http://localhost:8080/pro5_lms/resource/CSS/login.css">
+    <link rel="stylesheet" href="<c:url value='/resource/CSS/login.css'/>">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&family=Noto+Sans:wght@200;400;600;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/10dae3550b.js" crossorigin="anonymous"></script>
 	<script type="text/javascript">
@@ -45,16 +46,16 @@
 	<div class="section">
         <div class="container">
             <div class="left-box">
-                <img src="../resource/images/login.jpg" alt="" class="banner">
+                <img src="<c:url value='/resource/images/login.jpg'/>" alt="" class="banner">
             </div>
             <div class="right-box">
                <div class="service">
                     <div class="image">
-                        <img src="../resource/images/logo.png" class="logo">
+                        <img src="<c:url value='/resource/images/logo.png'/>" class="logo">
                     </div>
                     <div class="integrated"><a>통합서비스 </a><span>로그인</span></div>
                     <div class="login">
-                        <form action="http://localhost:8080/pro5_lms/member/login_process.do" class="form" name = "login_form" method="post">
+                        <form action="login_process.do" class="form" name = "login_form" method="post">
                             <div class="input">                           
                                 <input type="text" name="id" id="id" placeholder="아이디/직번">                        
                                 <input type="password" name="passwd" id="passwd" placeholder="비밀번호">
@@ -64,7 +65,7 @@
                             </div>
                         </form>
                     </div>
-                    <button class="signin"><a href="http://localhost:8080/pro5_lms/member/join.do">회원가입</a></button>         
+                    <button class="signin"><a href="join.do">회원가입</a></button>         
                 </div>    
                 <div class="text">
                     <p>주소 : (11111) 경남 창원시 마산합포구 영덕동 15-27번지 경민인터빌 407호</p>
