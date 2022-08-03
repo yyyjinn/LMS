@@ -7,6 +7,7 @@
   <dependencies>
   	<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
   	<!-- 웹 서버에서 얻은 요청 처리, 응답 생성, 응답 보냄-->
+  	<!-- 서블릿 : 서버에서 웹 페이지 등을 동적으로 생성하거나 데이터 처리를 수행하기 위해 자바로 작성된 프로그램을 말함-->
 	<dependency>
 	    <groupId>javax.servlet</groupId>
 	    <artifactId>javax.servlet-api</artifactId>

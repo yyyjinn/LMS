@@ -8,6 +8,7 @@ import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+//WebMvcConfigurer : spring mvc의 기능을 가지고 있음
 @Configuration
 @EnableWebMvc
 public class MvcConfig implements WebMvcConfigurer{
@@ -15,18 +16,20 @@ public class MvcConfig implements WebMvcConfigurer{
 	@Override
 	public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
 		configurer.enable();
+		//dispatcher를 사용하게 해줌
 	}
 
 	@Override
 	public void configureViewResolvers(ViewResolverRegistry registry) {
 		registry.jsp("/", ".jsp");
+		//viewResolver설정
 	}
 
 	
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		registry.addResourceHandler("/resource/**").addResourceLocations("/resource/");
-		
+		/*/resource/**라고 경로를 설정했을 때 실제 정적리소스 경로를 설정해줌*/
 	}
 
 	@Override
