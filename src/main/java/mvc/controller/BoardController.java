@@ -228,7 +228,8 @@ public class BoardController{
 			
 			//page의 ContentType등을 동적으로 바꾸기 위해 초기화
 			response.reset();
-			response.setContentType("application/octet-stream");
+			response.setContentType("application/octet-stream"); //8비트(1바이트) 형식의 모든 파일
+			
 			
 			//한글 인코딩(utf-8로 할 경우, 파일명이 깨짐)
 			String encoding = new String(realname.getBytes("euc-kr"),"8859_1");
@@ -239,8 +240,8 @@ public class BoardController{
 			
 			//파일이 있을 경우
 			if(file.isFile()) {
-				FileInputStream fInputSt = new FileInputStream(file);
-				ServletOutputStream sOutputSt = response.getOutputStream();
+				FileInputStream fInputSt = new FileInputStream(file);//파일로부터 바이트를 입력받아, 바이트 단위로 출력할 수 있는 클래스
+				ServletOutputStream sOutputSt = response.getOutputStream(); //게시판에 파일을 올릴 때 사용
 				
 				//파일을 읽어서 클라이언트에 저장
 				int readNum =0;

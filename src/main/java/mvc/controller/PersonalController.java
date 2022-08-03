@@ -187,6 +187,7 @@ public class PersonalController{
 		
 		model.addAttribute("ssubject", sub_list);
 		
+		//시험출제 한 후 
 		Enumeration<String> enu = request.getParameterNames();
 		ArrayList<String> arr = new ArrayList<String>();
 		while (enu.hasMoreElements()) {
@@ -220,12 +221,10 @@ public class PersonalController{
 	/* p_score로 이동 */
 	@RequestMapping("/p_score.per")
 	public ModelAndView perCon8(Model model, HttpSession session, @RequestParam Map<String, Object> map) {
-		//System.out.println("어디야 대체?----8");
+
 		/* 나의 과목 DB에서 가져오기 */
 		String p_id = (String) session.getAttribute("p_id");
-		//System.out.println(p_id+"----session");
 		ArrayList<String> sub_list = boardDAO.getmySubject(p_id);
-		//System.out.println(sub_list);
 		
 		model.addAttribute("ssubject", sub_list);
 		
@@ -234,10 +233,8 @@ public class PersonalController{
 			listfirst = (String) map.get("subject");
 		}
 
-		//System.out.println(listfirst+"map.get(\"subject\");");
 		if(listfirst==null) {
 			 listfirst = sub_list.get(0);
-			// System.out.println("1312312");
 		}
 		
 		// *성적산출 페이지 : 과목별 학생 수강신청테이블에서 가져오기, 수업일수가져오기*/

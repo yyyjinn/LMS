@@ -194,7 +194,6 @@ public class StudentController{
 	/*수강신청 과목담기*/
 	@RequestMapping("/subjectProcess.so")
 	public String stuCon5(HttpSession session, @RequestParam(value="subject") String sub_code) {
-		String addr = "";
 		
 		/*수강신청 처리*/
 		int number=5;
@@ -224,7 +223,7 @@ public class StudentController{
 			number = 5;
 		}
 
-		list = studentDAO.mySubject(s_id);
+		list = studentDAO.mySubject(s_id); //시작시간 순서대로
 		
 		//2. 내 최대학점과 비교
 		int sub_hakjum = subjectDTO.getSub_hakjum();
@@ -275,12 +274,8 @@ public class StudentController{
 			studentDAO.plusSubject(sub_code, s_id, s_name);
 			studentDAO.updatehakjum(hakjum2, s_id);
 			queDAO.insertStuDabjiList(s_name, s_id);
-			
-			addr = "/student/s_subject.so?type="+number;
-		}else {
-			addr = "redirect:/student/s_subject.so?type="+number;
 		}
-		return addr;
+		return "redirect:/student/s_subject.so?type="+number;
 	}
 	
 	/*수강신청 삭제*/
@@ -289,9 +284,8 @@ public class StudentController{
 		int s_id = Integer.parseInt((String) session.getAttribute("s_id"));
 		
 		ssubjectDTO subjectDTO = studentDAO.getssubjectDTO(sub_code);
-		String sub_name = subjectDTO.getSub_name();
 		StudentDTO s_DTO = studentDAO.getinfo(s_id); //학생정보 DTO
-		String s_name = subjectDTO.getSub_name(); //선택과목 이름
+		String sub_name = subjectDTO.getSub_name(); //선택과목 이름
 		
 		int sub_hakjum = subjectDTO.getSub_hakjum();
 		int s_hakjum = s_DTO.getS_max();
@@ -299,11 +293,11 @@ public class StudentController{
 		
 		studentDAO.deleteSubject(sub_code, s_id);
 		studentDAO.updatehakjum(hakjum, s_id);
-		queDAO.deleteStuDabjiList(s_name, s_id);
+		queDAO.deleteStuDabjiList(sub_name, s_id);
 		//시험 성적 처리에서 삭제
 		studentDAO.deletelecture(s_id, sub_name);
 		
-		return "/student/s_subject.so?type=4";
+		return "redirect:/student/s_subject.so?type=4";
 	}
 	
 	/*s_schedule로 이동*/

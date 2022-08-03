@@ -333,30 +333,6 @@
                           %>     
                         </div>
                         <div class = "foot">
-                        	<%-- <%
-		                    	if(pageNum==1){
-		                    %>
-		                    		<a><p><i class="fa-solid fa-angle-left"></i></p></a>
-		                    <% 
-		                   		}
-		                    	else{
-		                    %>
-		                    		<a href="http://localhost:8080/pro5_lms/student/s_subject.so?pageNum=<%=pageNum-1%>&sel_sub=<%=searchmajor%>"><p><i class="fa-solid fa-angle-left"></i></p></a>
-		                    <% 	
-		                    	}
-		                     %>
-		                     <%
-                     			if(pageNum==total_page){
-                     		 %>
-                     				<a><p><i class="fa-solid fa-angle-right"></i></p></a>
-                     		 <% 
-                    			}
-                    			else{
-                   			 %>
-                    				<a href="http://localhost:8080/pro5_lms/student/s_subject.so?pageNum=<%=pageNum+1%>&sel_sub=<%=searchmajor%>"><p><i class="fa-solid fa-angle-right"></i></p></a>
-		                    <% 	
-		                   		}
-		                    %> --%>
                             <p><i class="fa-solid fa-angle-left"></i></p>
                             <p><i class="fa-solid fa-angle-right"></i></p>
                         </div>

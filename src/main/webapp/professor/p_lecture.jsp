@@ -25,10 +25,9 @@
 </head>
 
 <Script language="JavaScript">
-    function func(subject_name)
-        {
+    function func(subject_name){
         window.open('p_popup_lecture.per?subject_name='+subject_name, '수강생 목록', 'Width=1600px, Height=1000px, Top=50px, Left=100px, Toolbar=yes, Menubar=yes, Statusbar=yes, Scrollbar=yes, Resizable=yes, fullscreen=yes');
-        }
+    }
 </Script>
 
 <body>
@@ -127,11 +126,9 @@
                             <ul class = "right">
                             	<%
                             		for(int i=0; i<sbDTO.size(); i++){
-                            			
-                            		
+
                             	%>
                                 <li><p><%=sbDTO.get(i) %></p></li>
-                                
                                 <%
                             		}
                                 %>
@@ -148,38 +145,6 @@
                                 %>
                             </ul>
                         </div>
-                        <!--<div class = "ul_container con2">
-                            <ul class = "right">
-                                <li><p>담당 과목 6</p></li>
-                                <li><p>담당 과목 7</p></li>
-                                <li><p>담당 과목 8</p></li>
-                                <li><p>담당 과목 9</p></li>
-                                <li><p>담당 과목 10</p></li>
-                            </ul>
-                            <ul class = "left">
-                                <li><p>n</p></li>
-                                <li><p>m</p></li>
-                                <li><p>o</p></li>
-                                <li><p>p</p></li>
-                                <li><p>q</p></li>
-                            </ul>
-                        </div>
-                        <div class = "ul_container con3">
-                            <ul class = "right">
-                                <li><p>담당 과목 11</p></li>
-                                <li><p>담당 과목 12</p></li>
-                                <li><p>담당 과목 13</p></li>
-                                <li><p>담당 과목 14</p></li>
-                                <li><p>담당 과목 15</p></li>
-                            </ul>
-                            <ul class = "left">
-                                <li><p>n</p></li>
-                                <li><p>m</p></li>
-                                <li><p>o</p></li>
-                                <li><p>p</p></li>
-                                <li><p>q</p></li>
-                            </ul>
-                        </div>-->
                     </div>
                     <div class = "foot">
                         <p><i class="fa-solid fa-angle-left"></i></p>

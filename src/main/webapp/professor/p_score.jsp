@@ -133,7 +133,7 @@ alert("확정되었습니다.");
                 <div class="frame_bottom">
                     <div class="select_item">
                         <form action="getStudent.per" name="subjectForm">
-                            <select name="subject" id="subject" onchange="sub_student(this)" class="sub">
+                            <select name="subject" id="subject" onchange="sub_student()" class="sub">
                             <!-- this : onchange의 객체(태그)를 지정 -->
                             <%
                             	for(int i=0; i<mylist.size(); i++){
@@ -151,7 +151,7 @@ alert("확정되었습니다.");
                             </select>
                         </form>
                         <script>
-                        	function sub_student(obj) {
+                        	function sub_student() {
                         		document.subjectForm.action = "p_score.per";
                         		document.subjectForm.submit();
                         	}
