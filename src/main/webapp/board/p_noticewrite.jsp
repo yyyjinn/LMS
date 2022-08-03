@@ -122,7 +122,7 @@ PersonalDTO per_dto = (PersonalDTO) request.getAttribute("dto");
    <section id="main">
        <!--배너 시작-->
         <div class ="banner">
-            <input type="button" value="로그아웃" onClick="location.href='http://localhost:8080/pro5_lms/member/logout.do'">
+            <input type="button" value="로그아웃" onClick="location.href='<c:url value='/member/logout.do'/>'">
         </div>
         <!--배너 끝-->
 <!--기본 틀 안에 내용 작성-->
