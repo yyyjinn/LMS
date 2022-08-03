@@ -63,6 +63,7 @@
                     </div>
                     <div class="integrated"><a>통합서비스 </a><span>로그인</span></div>
                     <div class="login">
+                    	<!-- 액션주소수정 -->
                         <form action="member/login_process.do" class="form" name = "login_form" method="post">
                             <div class="input">                           
                                 <input type="text" name="id" id="id" placeholder="아이디/직번">                        
