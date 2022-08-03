@@ -159,7 +159,7 @@ int total_page = ((Integer) request.getAttribute("total_page")).intValue();
                      <div class="right"><a href="#"><i class="fa-solid fa-angle-right"></i></a></div>
                  </div>
                  <div class="bottom">
-                     <a href="p_noticewrite.notice">글쓰기</a>
+                     <a href="<c:url value='/board/p_noticewrite.notice' />">글쓰기</a>
                  </div>
              </div>
          </form>
