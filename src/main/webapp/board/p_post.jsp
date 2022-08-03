@@ -34,7 +34,7 @@
     <nav id = "navbar">
         <div class = "nav_container">
             <div class = "nav_logo_container">
-                <a href = "<c:url value='professor/p_main.per'/>"><img src="<c:url value='/resource/images/logo.png'/>" alt="ITUNIVERSITY"></a>
+                <a href = "<c:url value='/professor/'/>p_main.per"><img src="<c:url value='/resource/images/logo.png'/>" alt="ITUNIVERSITY"></a>
             </div>
             <div class = "nav_user_container">
                 <a><%=session.getAttribute("p_name") %></a>
