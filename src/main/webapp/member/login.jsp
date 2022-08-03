@@ -63,8 +63,7 @@
                     </div>
                     <div class="integrated"><a>통합서비스 </a><span>로그인</span></div>
                     <div class="login">
-                    	<!-- 액션주소수정 -->
-                        <form action="member/login_process.do" class="form" name = "login_form" method="post">
+                        <form action="login_process.do" class="form" name = "login_form" method="post">
                             <div class="input">                           
                                 <input type="text" name="id" id="id" placeholder="아이디/직번">                        
                                 <input type="password" name="passwd" id="passwd" placeholder="비밀번호">
@@ -75,7 +74,7 @@
                         </form>
                     </div>
                     <!-- contextPath보다 더 상위에서 root를 잡기때문에 /를 붙이면 안됨 -->
-                    <button class="signin"><a href="member/join.do">회원가입</a></button>         
+                    <button class="signin"><a href="join.do">회원가입</a></button>         
                 </div>    
                 <div class="text">
                     <p>주소 : (11111) 경남 창원시 마산합포구 영덕동 15-27번지 경민인터빌 407호</p>

@@ -50,9 +50,10 @@ public class MemberController{
 		
 		//비밀번호가 존재(회원정보가 있으면)하면 실행
 		if(NameId[2].equals("1")) {
+			response.setCharacterEncoding("UTF-8");
+			response.setContentType("text/html; charset=utf-8");
 			PrintWriter out = response.getWriter();
 			
-			response.setContentType("text/html; charset=utf-8");
 			out.println("<script>alert('회원정보가 존재합니다. 로그인페이지로 이동합니다.'); location.href='./login.jsp';</script>");
 			out.flush();
 		}
